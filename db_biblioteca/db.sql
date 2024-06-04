@@ -1,5 +1,6 @@
 CREATE DATABASE biblioteca;
 
+USE biblioteca;
 
 CREATE TABLE livros( /*livros é uma entidade*/
     isbn INT PRIMARY KEY AUTO_INCREMENT, /*O que tem dentro da entidade são atributos*/
