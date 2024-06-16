@@ -39,15 +39,27 @@ INSERT INTO livros (titulo, genero, ano_publicacao, autor_id) VALUES
 SELECT *  FROM autores;
 SELECT * FROM livros;
 
-<!-- 
+-- 
 -- consulta simples (WHERE)
--- selecionar todos os livros escritos por J.K. Rowling -->
-
+-- selecionar todos os livros escritos por J.K. Rowling 
 SELECT titulo FROM livros WHERE autor_id = 1;
 
 SELECT titulo FROM livros WHERE genero = 'fantasia';
 
-<!--Selecionar todos os autores britanicos-->
+-- Selecionar todos os autores britanicos
 SELECT nome FROM autores WHERE nacionalidade = 'britanico';
 
-<!--elecionar todos os livros publicados no ano de 1996-->
+-- selecionar todos os livros publicados no ano de 1996
+SELECT titulo FROM Livros WHERE ano_publicacao = 1996;
+
+
+
+
+UPDATE autores
+SET nome = 'J.K. Rowling', nacionalidade = 'Britanico'
+WHERE id = 1;
+
+UPDATE tabela_nome
+SET coluna1 = novo_valor1,
+    coluna2 = novo_valor2
+WHERE id_registro = identificador_unico;
