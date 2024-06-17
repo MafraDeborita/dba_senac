@@ -63,3 +63,17 @@ UPDATE tabela_nome
 SET coluna1 = novo_valor1,
     coluna2 = novo_valor2
 WHERE id_registro = identificador_unico;
+
+ -- comando UPDATE --
+ -- Atualizar o genero do livro 'HOBBIT' para aventura --
+UPDATE livros
+SET genero = 'aventura'
+WHERE titulo = 'O hobbit';
+
+-- comando delete --
+-- deletar o livro 'o fastim dos corvos'
+ DELETE FROM nome_da_tabela 
+ WHERE condição;
+
+ DELETE FROM livros
+ WHERE id = 6;
