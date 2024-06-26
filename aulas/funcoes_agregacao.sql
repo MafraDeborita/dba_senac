@@ -111,11 +111,45 @@ HAVING AVG(salario) > 5000;
 
 
 
---teste
--- SELECT nome, COUNT(id) AS TotalNomes
-FROM funcionarios
-GROUP BY nome;
+-- 26/06/2024
+-- calcule a media do orçamento dos projetos por departamento
 
-SELECT nome, SUM(salario) AS salario
+SELECT departamento,
+AVG(orcamento)
+AS MediaORcamento
+FROM Projetos
+GROUP BY departamento;
+
+-- calcule o total de orçamento  dos projetos por departamento -- 
+SELECT departamento, SUM(orcamento) AS totalOrcamento
+FROM projetos
+GROUP BY departamento;
+
+-- calcule o numero total de funcionarios em cada departamento --
+SELECT departamento, COUNT(*) AS totalfuncionarios
 FROM funcionarios
-GROUP BY salario;
+GROUP BY departamento;
+
+select * from funcionarios;
+
+-- conte o numero de funcionarios admitidos em cada ano--
+SELECT YEAR(data_admissao) AS Ano, COUNT(*) AS QuantidadeFuncionarios
+FROM funcionarios
+GROUP BY YEAR (data_admissao);
+
+
+-- CALCULE A MEDIA SALARIAL POR DEPARTAMENTO, MAS INCLUA  APENAS DEPARTAMENTOS QUE TENHAM 
+-- PELO MENOS 2 FUNCIONARIOS
+
+SELECT departamento, AVG(salario) AS MediaSalariodepartamento
+FROM funcionarios
+GROUP BY departamento
+HAVING COUNT(*) >= 2;
+
+
+
+-- para fazer em casa
+-- ENCONTRE O MAIOR E O MENOR SALARIO EM CADA DEPARTAMENTO.
+
+-- LISTE OS PROJETOS CUJO ORÇAMENTO SEJA SUPERIOR A 10000.
+
