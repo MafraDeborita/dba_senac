@@ -150,6 +150,18 @@ HAVING COUNT(*) >= 2;
 
 -- para fazer em casa
 -- ENCONTRE O MAIOR E O MENOR SALARIO EM CADA DEPARTAMENTO.
+SELECT departamento, MIN(salario) AS MenorSalario, MAX(salario) AS MaiorSalario
+FROM Funcionarios
+GROUP BY departamento;
 
 -- LISTE OS PROJETOS CUJO ORÇAMENTO SEJA SUPERIOR A 10000.
+SELECT nome, orcamento
+FROM projetos
+WHERE  (orcamento) > 10000;
 
+-- LISTE OS DEPARTAMENTOS QUE TEM UM ORÇAMENTO MEDIO DE PROJETOS ACIMA DE 20000
+
+SELECT departamento, AVG(ORCAMENTO) AS MediaOrcamento FROM PROJETOS GROUP BY departamento HAVING AVG(ORCAMENTO) > 2000;
+
+-- LISTE OS DETALHES DOS FUNCIONARIOS QUE FORAM ADMITIDOS NOS ULTIMOS 2 ANOS
+SELECT departamento, data_admissao from funcionarios where data_admissao >= DATE_SUB(curdate(), interval 2 YEAR);
