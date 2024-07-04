@@ -61,3 +61,37 @@ RIGHT JOIN tabelaB AS B ON a.nome = b.nome;
 SELECT funcionarios.nome, funcionarios.departamento, projetos.nome AS NomeProjeto
 FROM funcionarios
 INNER JOIN Projetos ON funcionarios.departamento = Projetos.departamento;
+
+-- 03/07
+-- 2 LISTE OS NOMES DOS FUNCIONARIOS E NOME DOS PROJETOS EM QUE TRABALHAM ,
+-- INCLUINDO OS FUNCIONARIOS QUE NÃO ESTÃO ALOCADOS EM NENHUM PROJETOS
+
+SELECT funcionarios.nome, funcionarios.departamento, projetos.nome AS NomeProjeto
+FROM funcionarios
+LEFT JOIN Projetos ON funcionarios.departamento = Projetos.departamento;
+
+
+
+SELECT * FROM funcionarios;
+SELECT * FROM projetos;
+
+SELECT nome AS NomeFuncionarios
+FROM funcionarios
+GROUP BY projetos;
+
+-- 3 LISTE OS NOMES DOS PROJETOS E NOME DOS FUNCIONARIOS  QUE TRABALHAM neles,
+-- INCLUINDO OS PROJETOS QUE NÃO tem nenhum FUNCIONARIOS ALOCADOS.
+
+SELECT Projetos.nome, projetos.departamento, funcionarios.nome  AS Nomefuncionario
+FROM projetos
+RIGHT JOIN funcionarios ON Projetos.departamento = funcionarios.departamento;
+
+-- 4 LISTE TODOS OS FUNCIONARIOS E PROJETOS, INCLUINDO AQUELES QUE NÃO TEM CORRESPONDENCIA
+-- EM QUALQUER UMA DAS TABELAS.
+SELECT funcionarios.nome, funcionarios.departamento, projetos.nome AS NomeProjeto
+FROM funcionarios
+LEFT JOIN Projetos ON funcionarios.departamento = Projetos.departamento
+UNION
+SELECT Projetos.nome, projetos.departamento, funcionarios.nome  AS Nomefuncionario
+FROM projetos
+RIGHT JOIN funcionarios ON Projetos.departamento = funcionarios.departamento;
